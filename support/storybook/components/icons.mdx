@@ -1,0 +1,10 @@
+import { Meta } from '@storybook/blocks'
+import { icons } from 'dist/icons/storybook'
+import IconList from '@docs/components/common/iconList'
+import DocHeader from '@docs/components/common/docHeader'
+
+<Meta title="Design system/Tokens 🗂️/Icons" />
+
+<DocHeader title="Icons" descTitle="Count" description={`${Object.keys(icons).length} pcs`} />
+
+<IconList icons={icons} />

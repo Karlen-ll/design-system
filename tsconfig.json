@@ -1,0 +1,22 @@
+{
+  "ts-node": { "compilerOptions": { "module": "CommonJS" } },
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["ESNext", "DOM"],
+    "strict": true,
+    "esModuleInterop": true,
+    "newLine": "lf",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@docs/*": ["src/parser/_docs/*"],
+    },
+    "typeRoots": ["node_modules/@types", "types"],
+    "types": ["node"]
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "dist"],
+  "files": ["index.ts"]
+}

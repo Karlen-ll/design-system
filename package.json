@@ -1,0 +1,23 @@
+{
+  "name": "design-system",
+  "description": "Design system with Figma",
+  "version": "1.0.0",
+  "author": {
+    "name": "Pireverdiev Karlen",
+    "email": "karlen-ll@yandex.ru"
+  },
+  "scripts": {
+    "start": "ts-node -r tsconfig-paths/register -r dotenv/config -P ./tsconfig.json index.ts dotenv_config_path=.env.local"
+  },
+  "devDependencies": {
+    "dotenv": "16.3.1",
+    "figma-api": "1.11.0",
+    "prettier": "3.0.1",
+    "ts-node": "10.9.1",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "5.1.6"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

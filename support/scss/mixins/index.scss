@@ -1,0 +1,28 @@
+@use 'sass:meta';
+@use 'sass:map';
+
+@mixin color-classes($list) {
+  @each $_name, $_color in $list {
+    .#{$_name} {
+      color: $_color;
+    }
+  }
+}
+
+@mixin text-props($name, $props) {
+  @each $_prop, $_value in $props {
+    #{$_prop}: $_value;
+  }
+}
+
+@mixin text-class($name, $props) {
+  .#{$name} {
+    @include text-props($name, $props)
+  }
+}
+
+@mixin text-classes($list) {
+  @each $_name, $_props in $list {
+    @include text-class($_name, $_props)
+  }
+}
