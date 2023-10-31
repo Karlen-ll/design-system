@@ -9,8 +9,11 @@ export default class IconToken<NType extends 'INSTANCE' = 'INSTANCE'> extends To
 
     this.id = this.node.id
 
-    this.prefix = ''
+    if (options.media > 0) {
+      this.postfix = options.media
+    }
+
+    this.prefix = '' // ← Remove prefix
     this.name = name
-    this.fullname = name
   }
 }

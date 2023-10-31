@@ -1,11 +1,11 @@
 import { Node } from 'figma-api/lib/ast-types'
 import Parser, { ParserOptions } from './parser'
-import SpacesToken from '../tokens/spacesToken'
+import SpaceToken from '../tokens/spaceToken'
 
 type SpacesTokenNodeType = 'FRAME'
 
-export default class SpacesParser extends Parser<SpacesTokenNodeType> {
-  public tokenName: string = 'spaces'
+export default class SpaceParser extends Parser<SpacesTokenNodeType> {
+  public tokenName: string = 'space'
 
   constructor(options: ParserOptions) {
     super(options)
@@ -16,6 +16,6 @@ export default class SpacesParser extends Parser<SpacesTokenNodeType> {
   }
 
   protected createToken(node: Node<SpacesTokenNodeType>, groupNodes: Node[], allNodes: Node[], media: number) {
-    return new SpacesToken({ node, groupNodes, allNodes, media, themeRegex: this.themeRegex })
+    return new SpaceToken({ node, groupNodes, allNodes, media, themeRegex: this.themeRegex })
   }
 }

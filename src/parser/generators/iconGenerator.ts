@@ -70,15 +70,15 @@ export default class IconGenerator extends FileGenerator {
 
   private async getSvgsRecord(tokens: IconToken[]) {
     const svgs: Record<string, string> = {}
-
-    const links = await this.figmaLoader.getImages(tokens.map((token) => token.id))
+    const links = tokens.length ? await this.figmaLoader.getImages(tokens.map((token) => token.id)) : []
 
     for await (const [id, link] of Object.entries(links)) {
-      const response = await fetch(link)
-      const blob = await response.blob()
-
       const name = tokens.find((token) => token.id === id)?.fullname
+
       if (name) {
+        const response = await fetch(link)
+        const blob = await response.blob()
+
         svgs[name] = (await blob.text()).replace(/(fill|stroke)="(?!none)([a-zA-z0-9#]+)"/gm, '$1="currentColor"')
       }
     }

@@ -27,7 +27,7 @@ export default class FigmaLoader {
     const url = `${this.baseUrl}/${this.apiVersion}/files/${this.fileKey}`
     const init = { headers: { 'X-Figma-Token': this.figmaToken } }
 
-    const response = await (await fetch(url, init)).json() as any
+    const response = (await (await fetch(url, init)).json()) as any
     const document = response?.document as Node<'DOCUMENT'>
 
     if (!document) {
@@ -46,7 +46,7 @@ export default class FigmaLoader {
     const url = `${this.baseUrl}/${this.apiVersion}/images/${this.fileKey}?${queryUrl}`
     const init = { headers: { 'X-Figma-Token': this.figmaToken } }
 
-    const response = await (await fetch(url, init)).json() as any
+    const response = (await (await fetch(url, init)).json()) as any
     const links = response?.images
 
     if (!links) {

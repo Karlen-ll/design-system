@@ -6,6 +6,7 @@ export interface TokenOptions<NType extends keyof NodeTypes> {
   groupNodes: Node[]
   allNodes: Node[]
   media: number
+  postfix?: string | number
 }
 
 export default abstract class Token<NType extends keyof NodeTypes = keyof NodeTypes> {
@@ -21,8 +22,8 @@ export default abstract class Token<NType extends keyof NodeTypes = keyof NodeTy
   /** Приставка на основе групп (вложенности) */
   public prefix: string
 
-  /** Полное имя токена (prefix + name) */
-  public fullname: string
+  /** Постфикс */
+  public postfix?: string | number
 
   /** Значение ширины икрана */
   public media: number
@@ -44,9 +45,23 @@ export default abstract class Token<NType extends keyof NodeTypes = keyof NodeTy
     this.themeName = options.allNodes[0].name.match(options.themeRegex)?.[0] ?? options.allNodes[0].name
 
     this.prefix = options.groupNodes.map((node) => node.name).join('-')
-    this.fullname = `${this.prefix}-${this.name}`
+    this.postfix = options.postfix
 
     this.media = options.media
     this.groups = options.groupNodes.slice(1).map((node) => node.name)
+  }
+
+  get fullname() {
+    const result: (string | number)[] = [this.name]
+
+    if (this.prefix) {
+      result.unshift(this.prefix)
+    }
+
+    if (this.postfix) {
+      result.push(this.postfix)
+    }
+
+    return result.join('-')
   }
 }

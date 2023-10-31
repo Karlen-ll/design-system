@@ -17,12 +17,12 @@
 
 @mixin text-class($name, $props) {
   .#{$name} {
-    @include text-props($name, $props)
+    @include text-props($name, $props);
   }
 }
 
 @mixin text-classes($list) {
   @each $_name, $_props in $list {
-    @include text-class($_name, $_props)
+    @include text-class($_name, $_props);
   }
 }
