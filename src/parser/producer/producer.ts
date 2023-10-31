@@ -1,7 +1,7 @@
 import fs, { PathLike } from 'fs'
 import { Node } from 'figma-api/lib/ast-types'
 import FigmaLoader from '@/parser/figmaLoader'
-import { Token, ColorToken, TextToken, ShadowToken, RoundingToken, SpacesToken, IconToken } from '@/parser/tokens'
+import { Token, ColorToken, TextToken, ShadowToken, RoundingToken, SpaceToken, IconToken } from '@/parser/tokens'
 import { CssGenerator, ScssGenerator, JsonGenerator, MdxGenerator, IconGenerator } from '@/parser/generators'
 import { CssCollection, ScssCollection, JsonCollection, IconCollection } from '@/parser/collections'
 
@@ -10,7 +10,7 @@ export interface ProducerOptions {
   figmaLoader: FigmaLoader
 }
 
-/** Класс для содания выходных файлов */
+/** Класс для создания выходных файлов */
 export default class Producer {
   public document: Node<'DOCUMENT'> | null = null
 
@@ -58,7 +58,7 @@ export default class Producer {
       token instanceof TextToken ||
       token instanceof ShadowToken ||
       token instanceof RoundingToken ||
-      token instanceof SpacesToken
+      token instanceof SpaceToken
     ) {
       this.cssCollection.addToken(token)
       this.scssCollection.addToken(token)

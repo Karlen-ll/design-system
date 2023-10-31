@@ -11,7 +11,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@docs/*": ["src/parser/_docs/*"],
+      "@docs/*": ["src/parser/_docs/*"]
     },
     "typeRoots": ["node_modules/@types", "types"],
     "types": ["node"]

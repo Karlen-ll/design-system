@@ -7,7 +7,7 @@ import { IconToken } from '@/parser/tokens'
 type IconTokenNodeType = 'INSTANCE'
 
 export default class IconParser extends Parser<IconTokenNodeType> {
-  public tokenName: string = 'icons'
+  public tokenName: string = 'icon'
 
   constructor(options: ParserOptions) {
     super(options)

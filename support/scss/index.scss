@@ -3,13 +3,13 @@
 @use 'sass:map';
 
 @mixin text-by-name($name) {
-  @include text-props($name, map.get(token.$text, $name))
+  @include text-props($name, map.get(token.$text, $name));
 }
 
 @mixin ttext-regular() {
-  @include text-by-name('text-ttext-regular')
+  @include text-by-name('text-ttext-regular');
 }
 
 @mixin stext-regular() {
-  @include text-by-name('text-stext-regular')
+  @include text-by-name('text-stext-regular');
 }

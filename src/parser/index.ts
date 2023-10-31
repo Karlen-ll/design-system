@@ -1,6 +1,6 @@
 import { NodeTypes } from 'figma-api/lib/ast-types'
 import { Producer } from '@/parser/producer'
-import { ColorParser, RoundingParser, ShadowParser, SpacesParser, TextParser, IconParser } from '@/parser/parsers'
+import { ColorParser, RoundingParser, ShadowParser, SpaceParser, TextParser, IconParser } from '@/parser/parsers'
 import Parser, { ParserOptions } from '@/parser/parsers/parser'
 import FigmaLoader from '@/parser/figmaLoader'
 
@@ -37,7 +37,7 @@ export async function extractTokensFromFigma() {
     new TextParser(parserOptions),
     new ShadowParser(parserOptions),
     new RoundingParser(parserOptions),
-    new SpacesParser(parserOptions),
+    new SpaceParser(parserOptions),
     new IconParser(parserOptions),
   ]
 

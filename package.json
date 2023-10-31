@@ -7,10 +7,19 @@
     "email": "karlen-ll@yandex.ru"
   },
   "scripts": {
-    "start": "ts-node -r tsconfig-paths/register -r dotenv/config -P ./tsconfig.json index.ts dotenv_config_path=.env.local"
+    "start": "ts-node -r tsconfig-paths/register -r dotenv/config -P ./tsconfig.json index.ts dotenv_config_path=.env.local",
+    "eslint": "eslint . --ext .ts",
+    "eslint:fix": "npm run eslint -- --fix",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write ."
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "6.2.1",
+    "@typescript-eslint/parser": "6.2.1",
     "dotenv": "16.3.1",
+    "eslint": "8.46.0",
+    "eslint-config-prettier": "8.10.0",
+    "eslint-plugin-prettier": "5.0.0",
     "figma-api": "1.11.0",
     "prettier": "3.0.1",
     "ts-node": "10.9.1",
